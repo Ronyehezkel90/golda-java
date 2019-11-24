@@ -9,8 +9,8 @@
         <module name="golda-java" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="golda-java" target="1.5" />
+    <bytecodeTargetLevel target="8">
+      <module name="golda-java" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
