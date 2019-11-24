@@ -1,9 +1,31 @@
+import okhttp3.Response;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import java.util.Scanner;
+
 public class Converter {
 
     void convert() {
-    //naor push like father
-        //the pusher
-        //this is ron comment
+        public static void main(String[] args) {
+
+            String url = "https://golda-go.herokuapp.com/get/branch" ;
+
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .get()
+                    .build();
+            try {
+                Response response = client.newCall(request).execute();
+                System.out.println(response);
+                System.out.println(response.body());
+            } catch (Exception e) {
+                System.out.println("not working");
+                System.out.println(e.getMessage());
+            }
+
+        }
 
     }
 }
