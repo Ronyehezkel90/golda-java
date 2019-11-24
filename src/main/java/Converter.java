@@ -17,7 +17,7 @@ public class Converter {
         try {
             Response response = client.newCall(request).execute();
             System.out.println(response);
-            System.out.println(response.body());
+            System.out.println(response.body().string());
         } catch (Exception e) {
             System.out.println("not working");
             System.out.println(e.getMessage());
