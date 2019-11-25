@@ -1,0 +1,25 @@
+{
+  "branches": [
+    {
+      "id": 1,
+      "name": "Holon",
+      "address": "Hatalyumut",
+      "owner": "Talit",
+      "exams": ""
+    },
+    {
+      "id": 2,
+      "name": "Florentin",
+      "address": "Florentin 4, Tel-aviv",
+      "owner": "Abush",
+      "exams": ""
+    },
+    {
+      "id": 3,
+      "name": "Givataim",
+      "address": "Hamenashneshim 2, Givataim",
+      "owner": "Morit",
+      "exams": ""
+    }
+  ]
+}
