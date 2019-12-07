@@ -1,24 +1,14 @@
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 
 
-public class Converter {
 
+public class serverData {
+
+    String filePath = "C:\\Users\\Naor\\Documents\\GitHub\\golda-java\\src\\main\\resources\\branches.json";
     public static void main(String[] args) {
 
 //        String url = "https://golda-go.herokuapp.com/get/branch";
@@ -50,9 +40,8 @@ public class Converter {
 //            e.printStackTrace();
 //        }
 
-        Gson gson = new Gson();
-        String filePath = "C:\\Users\\Naor\\Documents\\GitHub\\golda-java\\src\\main\\resources\\branches.json";//לבדוק דרך יותר יפה
-        try{
+       // String filePath = "C:\\Users\\Naor\\Documents\\GitHub\\golda-java\\src\\main\\resources\\branches.json";//לבדוק דרך יותר יפה
+   /*     try{
             String contents = new String(Files.readAllBytes(Paths.get(filePath)));
             JSONObject j = new JSONObject(contents);
             JSONArray branches = j.getJSONArray("branches");
@@ -67,20 +56,42 @@ public class Converter {
                 b[i].setAddress(object.getString("address"));
                 b[i].setID(object.getInt("id"));
                 b[i].setOwner(object.getString("owner"));
+
                 System.out.println(b[i].getID());
                 System.out.println(b[i].getName());
                 System.out.println(b[i].getAddress());
                 System.out.println(b[i].getOwner());
                 System.out.println();
-            }
+            }*/
 //            JSONObject j1 = j.getJSONObject("branches");
 //            System.out.println(j1.getString("name"));
-
+/*
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
+    }
+
+    Branch[] getBranchesFromDb(){
+        Branch branch[] = new Branch[0];
+        try{
+            String contents = new String(Files.readAllBytes(Paths.get(filePath)));
+            JSONObject jsonObject = new JSONObject(contents);
+            JSONArray branches = jsonObject.getJSONArray("branches");
+            branch = new Branch[branches.length()];
+            for (int i = 0 ; i < branches.length(); i++){
+                JSONObject object = branches.getJSONObject(i);
+                int branchId = object.getInt("id") ;
+                String branchName = object.getString("name") ;
+                String branchAddress = object.getString("address") ;
+                String branchOwner = object.getString("owner") ;
+                branch[i] = new Branch(branchId, branchName, branchAddress, branchOwner);
+            }
+
+        } catch (IOException e) { e.printStackTrace(); }
+
+        return branch;
     }
 
 }

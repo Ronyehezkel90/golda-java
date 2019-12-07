@@ -1,17 +1,24 @@
 public class Branch {
 
-    private int ID;
+    private int Id;
     private String Name;
     private String Address;
     private String Owner;
-    private Exam exams;
+    private Exam[] Exams;
+
+    public Branch(int Id, String Name, String Address, String Owner){
+        this.Id = Id;
+        this.Name = Name;
+        this.Address = Address;
+        this.Owner = Owner;
+    }
 
     public int getID() {
-        return ID;
+        return Id;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this.Id = ID;
     }
 
     public String getName() {
@@ -38,11 +45,4 @@ public class Branch {
         Owner = owner;
     }
 
-    public Exam getExams() {
-        return exams;
-    }
-
-    public void setExams(Exam exams) {
-        this.exams = exams;
-    }
 }
