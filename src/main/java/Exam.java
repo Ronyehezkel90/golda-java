@@ -1,47 +1,40 @@
 public class Exam {
-    private int id;
-    private String branch_name;
-    private String date;
-    private String by;
-    private Topic topic;
+    private int Id;
+    private String branchName;
+    private String CheckDate;
+    private String Reviewer;
+    private Topic[] Topic;
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
-    public String getBranch_name() {
-        return branch_name;
+    public String getBranchName() {
+        return branchName;
     }
 
-    public void setBranch_name(String branch_name) {
-        this.branch_name = branch_name;
+    public void setBranchName(String branchName) {
+        this.branchName = branchName;
     }
 
-    public String getDate() {
-        return date;
+    public String getCheckDate() {
+        return CheckDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCheckDate(String checkDate) {
+        this.CheckDate = checkDate;
     }
 
-    public String getBy() {
-        return by;
+    public String getReviewer() {
+        return Reviewer;
     }
 
-    public void setBy(String by) {
-        this.by = by;
+    public void setReviewer(String reviewer) {
+        this.Reviewer = reviewer;
     }
 
-    public Topic getTopic() {
-        return topic;
-    }
-
-    public void setTopic(Topic topic) {
-        this.topic = topic;
-    }
 }

@@ -5,5 +5,11 @@ public class Topic {
     private  String Comment;
     private int General;
 
+    public Topic(int id, String name, String comment, int general) {
+        this.Id = id;
+        this.Name = name;
+        this.Comment = comment;
+        this.General = general;
+    }
 
 }

@@ -14,35 +14,14 @@ public class Branch {
     }
 
     public int getID() {
-        return Id;
-    }
-
-    public void setID(int ID) {
-        this.Id = ID;
-    }
+        return Id; }
 
     public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
+        return Name; }
 
     public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
-    }
+        return Address; }
 
     public String getOwner() {
-        return Owner;
-    }
-
-    public void setOwner(String owner) {
-        Owner = owner;
-    }
-
+        return Owner; }
 }
