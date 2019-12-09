@@ -1,7 +1,8 @@
 public class Repository implements dataInterface {
 
-     public Branch[] getBranches() {
-        serverData serverData = new serverData();
+    private serverData serverData = new serverData();
+
+    public Branch[] getBranches() {
         return serverData.getBranchesFromDb();
 
     }

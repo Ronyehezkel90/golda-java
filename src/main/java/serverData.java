@@ -9,6 +9,11 @@ import java.nio.file.Paths;
 public class serverData {
 
     String filePath = "C:\\Users\\Naor\\Documents\\GitHub\\golda-java\\src\\main\\resources\\branches.json";
+    String branchesString = "branches";
+    String idString = "id";
+    String nameString = "name";
+    String addressString = "address";
+    String ownerString = "owner";
     public static void main(String[] args) {
 
 //        String url = "https://golda-go.herokuapp.com/get/branch";
