@@ -1,9 +1,10 @@
+import java.util.List;
+
 public class Repository implements dataInterface {
 
     private serverData serverData = new serverData();
 
-    public Branch[] getBranches() {
+    public List<Branch> getBranches() {
         return serverData.getBranchesFromDb();
-
     }
 }

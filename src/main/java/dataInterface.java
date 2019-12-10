@@ -1,4 +1,6 @@
+import java.util.List;
+
 public interface dataInterface {
-    Branch[] getBranches();
+    List<Branch> getBranches();
 
 }
