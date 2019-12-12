@@ -7,4 +7,8 @@ public class Repository implements dataInterface {
     public List<Branch> getBranches() {
         return serverData.getBranchesFromDb();
     }
+
+    public List<topicQuestions> getReviews() {
+        return serverData.getReviews();
+    }
 }
