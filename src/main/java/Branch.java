@@ -1,27 +1,27 @@
 public class Branch {
 
-    private int Id;
-    private String Name;
-    private String Address;
-    private String Owner;
-    private Exam[] Exams;
+    private int id;
+    private String name;
+    private String address;
+    private String managerId;
+    private String phone;
 
-    public Branch(int Id, String Name, String Address, String Owner){
-        this.Id = Id;
-        this.Name = Name;
-        this.Address = Address;
-        this.Owner = Owner;
+    public Branch(int Id, String Name, String Address, String managerId){
+        this.id = Id;
+        this.name = Name;
+        this.address = Address;
+        this.managerId = managerId;
     }
 
     public int getID() {
-        return Id; }
+        return id; }
 
     public String getName() {
-        return Name; }
+        return name; }
 
     public String getAddress() {
-        return Address; }
+        return address; }
 
-    public String getOwner() {
-        return Owner; }
+    public String getManagerId() {
+        return managerId; }
 }
