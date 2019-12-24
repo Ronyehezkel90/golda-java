@@ -1,27 +1,24 @@
+import com.google.gson.annotations.SerializedName;
+
 public class Branch {
 
+    @SerializedName("ID")
     private int id;
+    @SerializedName("Name")
     private String name;
+    @SerializedName("Address")
     private String address;
-    private String managerId;
-    private String phone;
+    @SerializedName("Owner")
+    private String managerName;
 
-    public Branch(int Id, String Name, String Address, String managerId){
+     Branch(int Id, String Name, String Address, String managerName){
         this.id = Id;
         this.name = Name;
         this.address = Address;
-        this.managerId = managerId;
+        this.managerName = managerName;
     }
 
-    public int getID() {
-        return id; }
-
-    public String getName() {
+    String getName() {
         return name; }
 
-    public String getAddress() {
-        return address; }
-
-    public String getManagerId() {
-        return managerId; }
 }

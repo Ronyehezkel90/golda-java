@@ -1,38 +1,38 @@
+import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class serverData {
-
+public class ServerData {
+    String baseUrl = "https://golda-go.herokuapp.com/" ;
+    Gson gson = new Gson();
+    NetworkManager networkManager = new NetworkManager();
     List<Branch> getBranchesFromDb(){
-        String idString = "ID";
+       /* String idString = "ID";
         String nameString = "Name";
         String addressString = "Address";
-        String ownerString = "Owner";
+        String ownerString = "Owner";*/
         List<Branch> branches = new ArrayList<>();
-        String url = "https://golda-go.herokuapp.com/get/branch";
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .build();
         try {
-            Response response = client.newCall(request).execute();
+            Response response = networkManager.sendRequest(baseUrl,"get/branch");
             String responseAsString = response.body().string();
+
+
             JSONArray branchesJsonArray = new JSONArray(responseAsString);
             for(int i = 0 ; i < branchesJsonArray.length() ; i++){
                 JSONObject jsonObject = branchesJsonArray.getJSONObject(i);
-                int branchId = jsonObject.getInt(idString) ;
+                Branch branch = gson.fromJson(jsonObject.toString(), Branch.class);
+                System.out.println(branch);
+                /*int branchId = jsonObject.getInt(idString) ;
                 String branchName = jsonObject.getString(nameString) ;
                 String branchAddress = jsonObject.getString(addressString) ;
                 String branchOwner = jsonObject.getString(ownerString) ;
-                branches.add(new Branch(branchId, branchName, branchAddress, branchOwner));
+                branches.add(new Branch(branchId, branchName, branchAddress, branchOwner));*/
             }
 
         } catch (IOException e) {
@@ -43,18 +43,17 @@ public class serverData {
         return branches;
     }
 
-    List<topicQuestions> getReviews(){
+    List<Question> getReviews(){
         /* First we create the topics list */
         List<Topic> topics = getTopic();
         String idString = "id";
         String titleString = "title";
         String subTitleString = "subTitle";
         String topicIdString = "topicId";
-        List<topicQuestions>  topicQuestions = new ArrayList<>();
-        String url = "https://golda-go.herokuapp.com/get/questions";
+        List<Question> Question = new ArrayList<>();
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url(url)
+                .url(baseUrl+"get/questions")
                 .get()
                 .build();
         try {
@@ -74,7 +73,7 @@ public class serverData {
                         topicForQuestion.copyTopic(topics.get(j)) ;
                     }
                 }
-                topicQuestions.add(new topicQuestions(questionId, questionTitle,questionSubtitle , topicForQuestion));
+                Question.add(new Question(questionId, questionTitle,questionSubtitle , topicForQuestion));
             }
 
         } catch (IOException e) {
@@ -82,18 +81,16 @@ public class serverData {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-        return topicQuestions;
+        return Question;
     }
 
-    @NotNull
-    private List<Topic> getTopic(){
+    List<Topic> getTopic(){
         List<Topic> topics = new ArrayList<Topic>();
         String idString = "id";
         String nameString = "name";
-        String url = "https://golda-go.herokuapp.com/get/topic";
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url(url)
+                .url(baseUrl+"/get/topic")
                 .get()
                 .build();
         try {

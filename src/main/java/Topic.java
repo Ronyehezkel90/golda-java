@@ -1,28 +1,28 @@
 public class Topic {
 
-    private int Id;
-    private  String Name;
+    private int id;
+    private  String name;
 
-    public Topic(int id, String name) {
-        this.Id = id;
-        this.Name = name;
+    Topic(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public Topic() {
-        this.Id = 0;
-        this.Name = null;
+    Topic() {
+        this.id = 0;
+        this.name = null;
     }
 
-    public String getName(){
-        return this.Name;
+    String getName(){
+        return this.name;
     }
-    public int getId(){
-        return this.Id;
+    int getId(){
+        return this.id;
     }
 
-    public void copyTopic(Topic topic){
-        this.Name = topic.getName();
-        this.Id = topic.getId();
+    void copyTopic(Topic topic){
+        this.name = topic.getName();
+        this.id = topic.getId();
     }
 
 }

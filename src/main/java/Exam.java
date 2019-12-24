@@ -14,24 +14,5 @@ public class Exam {
         Topic = topic;
     }
 
-    public int getId() {
-        return Id;
-    }
-
-
-    public String getBranchName() {
-        return branchName;
-    }
-
-
-    public String getCheckDate() {
-        return CheckDate;
-    }
-
-
-    public String getReviewer() {
-        return Reviewer;
-    }
-
 
 }

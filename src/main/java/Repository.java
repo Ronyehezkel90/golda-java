@@ -1,14 +1,14 @@
 import java.util.List;
 
-public class Repository implements dataInterface {
+public class Repository implements DataInterface {
 
-    private serverData serverData = new serverData();
+    private ServerData serverData = new ServerData();
 
     public List<Branch> getBranches() {
         return serverData.getBranchesFromDb();
     }
 
-    public List<topicQuestions> getReviews() {
+    public List<Question> getReviews() {
         return serverData.getReviews();
     }
 }
